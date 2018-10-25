@@ -27,6 +27,12 @@ const data2 = {
 	wind: '30 m/s'
 }
 
+const location = 'Buenos Aires,ar';
+const api_key = 'db9f7fd43d0898f5fed559aa203bbd9f';
+const url_base_weather = 'http://api.openweathermap.org/data/2.5/weather';
+
+const api_weather = `${url_base_weather}?q=${location}&appid=${api_key}`;
+
 class WeatherLocation extends Component {
 
 	constructor () {
@@ -37,7 +43,15 @@ class WeatherLocation extends Component {
 		};
 	}
 
+
 	handleUpdateClick = () => {
+		fetch(api_weather).then( resolve => {
+			
+			return resolve.json();
+		}).then( data=> {
+			console.log(data);
+		});
+
 		console.log("actualizado");
 		this.setState({
 			city: 'Barcelona',
