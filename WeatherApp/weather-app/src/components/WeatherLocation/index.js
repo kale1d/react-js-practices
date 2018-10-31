@@ -25,9 +25,6 @@ class WeatherLocation extends Component {
 		this.handleUpdateClick();
 	}
 
-	componentDidUpdate(prevProps, prevState) {
-		console.log("did update")
-	}
 	
 
 	handleUpdateClick = () => {
@@ -42,14 +39,14 @@ class WeatherLocation extends Component {
 			this.setState({
 				data: newWeather,
 			})
-			console.log(newWeather);
 		});
 
 	}
 	render() {
 		const { city, data } = this.state;
+		const {onWeatherLocationClick} = this.props;
 		return (
-			<div className="weatherLocationCont">
+			<div className="weatherLocationCont" onClick={onWeatherLocationClick}>
 				<Location
 					city={city}
 				/>
@@ -59,13 +56,14 @@ class WeatherLocation extends Component {
 					/> :
 					<CircularProgress size={50}/>
 				}
-				<button onClick={this.handleUpdateClick}>Actualizar</button>
+				{/* <button onClick={this.handleUpdateClick}>Actualizar</button> */}
 			</div>
 		);
 	}
 }
 WeatherLocation.propTypes = {
 	city: PropTypes.string.isRequired,
+	onWeatherLocationClick: PropTypes.func,
 }
 
 export default WeatherLocation;
