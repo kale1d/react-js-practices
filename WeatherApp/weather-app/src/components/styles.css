@@ -1,0 +1,14 @@
+
+.forecast-title {
+  color: rebeccapurple;
+  text-align: center;
+  padding: 15px 0;
+}
+
+@media (max-width: 64em){
+  .locationList{
+    max-height: 30vh;
+    overflow: auto;
+    margin-bottom: 20px;
+  }
+}
