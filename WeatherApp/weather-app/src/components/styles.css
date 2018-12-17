@@ -1,3 +1,8 @@
+.locationList {
+  height: 85vh;
+  overflow: auto;
+  margin-bottom: 20px;
+}
 
 .forecast-title {
   color: rebeccapurple;
@@ -7,8 +12,7 @@
 
 @media (max-width: 64em){
   .locationList{
-    max-height: 30vh;
-    overflow: auto;
+    max-height: 45vh;
     margin-bottom: 20px;
   }
 }
