@@ -5,8 +5,9 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
-import LocationList from './components/LocationList'
-import ForecastExtended from './components/ForecastExtended'
+import LocationListContainer from './containers/LocationListContainer';
+import ForecastExtended from './components/ForecastExtended';
+
 
 import './App.css';
 
@@ -34,9 +35,7 @@ class App extends Component {
     };
   }
 
-  handleSelectedLocation = city => {
-    this.setState({ city });
-  }
+
   render() {
     const { city } = this.state;
     return (
@@ -51,9 +50,8 @@ class App extends Component {
           </Row>
           <Row>
             <Col xs={12} md={6}>
-              <LocationList
+              <LocationListContainer
                 cities={cities}
-                onSelectedLocation={this.handleSelectedLocation}
               />
             </Col>
             <Col xs={12} md={6}>
